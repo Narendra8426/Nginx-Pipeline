@@ -8,7 +8,7 @@ build:
   stage: build
   script:
     - echo "Building the Docker image."
-    - docker build -t nginx:v2.0 .  # Build the Docker image locally with the tag 'my-local-image'
+    - docker build -t nginx:v1.0 .  # Build the Docker image locally with the tag 'my-local-image'
   only:
     - main  # Or any branch you want to trigger the build on
   tags:
@@ -22,7 +22,7 @@ deploy:
     # Run the new container locally
     - docker container stop nginx-cicd
     - docker container rm nginx-cicd
-    - docker run -d -p 8080:80 --name nginx-cicd nginx:v2.0
+    - docker run -d -p 8080:80 --name nginx-cicd nginx:v1.0
   only:
     - main  # Only deploy from the master branch (adjust as needed)
   tags:
