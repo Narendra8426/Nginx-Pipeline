@@ -1,6 +1,14 @@
 stages:
+    test-git
   - build
   - deploy
+
+
+test:
+  stage: test-git
+  script:
+    - git --version
+    - echo "Git is working!"
 
 # Build Stage: Build the Docker image
 build:
