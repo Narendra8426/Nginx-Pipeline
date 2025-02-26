@@ -9,6 +9,10 @@ test:
   script:
     - git --version
     - echo "Git is working!"
+  only:
+    - main
+  tags:
+    - runner    
 
 # Build Stage: Build the Docker image
 build:
