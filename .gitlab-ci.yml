@@ -20,9 +20,9 @@ deploy:
   script:
     - echo "Deploying the Docker container locally"
     # Run the new container locally
-    - docker container stop nignx-cicd
+    - docker container stop nginx-cicd
     - docker container rm nginx-cicd
-    - docker run -d -p 8080:80 --name nginx-cicd nginx:cicd
+    - docker run -d -p 8080:80 --name nginx-cicd nginx:v1.0
   only:
     - main  # Only deploy from the master branch (adjust as needed)
   tags:
